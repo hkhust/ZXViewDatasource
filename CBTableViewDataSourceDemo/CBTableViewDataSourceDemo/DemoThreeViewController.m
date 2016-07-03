@@ -94,13 +94,12 @@ void(^didScroll)(UIScrollView * scrollView);
                         .height(SCREEN_WIDTH * 0.48f);
             }];
             [make makeSection:^void(CBTableViewSectionMaker * section) {
-                section
-                    .cell([HomeActivityCell class])
-                    .data(self.viewModel.activity)
-                    .adapter(^(HomeActivityCell * cell,NSDictionary * data,NSUInteger index){
+                section.cell([HomeActivityCell class]);
+                section.data(self.viewModel.activity);
+                section.adapter(^(HomeActivityCell * cell,NSDictionary * data,NSUInteger index){
                         [cell.imgView setImage:[UIImage imageNamed:data[@"image"]]];
-                    })
-                    .height(SCREEN_WIDTH * 0.36f);
+                });
+                section.height(SCREEN_WIDTH * 0.36f);
             }];
             [make makeSection:^void(CBTableViewSectionMaker * section) {
                 section

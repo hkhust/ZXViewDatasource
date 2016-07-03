@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1BC3A0A8571E26FA9A7D8DA1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3C787E6E50FFA8477B1F93 /* libPods.a */; };
+		5754725E1D290CBC00018DDD /* HomeActivityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5754725D1D290CBC00018DDD /* HomeActivityCollectionViewCell.m */; };
+		575472611D290D2500018DDD /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 575472601D290D2500018DDD /* GoodsCollectionViewCell.m */; };
+		575472641D290D6900018DDD /* SplitCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 575472631D290D6900018DDD /* SplitCollectionViewCell.m */; };
+		575472671D290D9200018DDD /* FeedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 575472661D290D9200018DDD /* FeedCollectionViewCell.m */; };
+		5754726A1D290DC300018DDD /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 575472691D290DC300018DDD /* CustomCollectionViewCell.m */; };
+		5754726D1D290E2A00018DDD /* DemoOneCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5754726C1D290E2A00018DDD /* DemoOneCollectionViewController.m */; };
+		575472701D290EA000018DDD /* UICollectionView+CBTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5754726F1D290EA000018DDD /* UICollectionView+CBTableViewDataSource.m */; };
+		575472731D291AB400018DDD /* DemoThreeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 575472721D291AB400018DDD /* DemoThreeCollectionViewController.m */; };
+		575472761D291D2400018DDD /* CycleScrollCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 575472751D291D2400018DDD /* CycleScrollCollectionViewCell.m */; };
+		575472791D291E4800018DDD /* DemoFourCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 575472781D291E4800018DDD /* DemoFourCollectionViewController.m */; };
+		5754727C1D292CF700018DDD /* CategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5754727B1D292CF700018DDD /* CategoryCollectionViewCell.m */; };
 		789F609E4DD07A0603BB4D68 /* avatar_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 789F64CEA19A59DD6D20180E /* avatar_03.jpg */; };
 		789F60B0138449BEF7F9A177 /* image5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 789F6CA35CC85584A1920BF4 /* image5.jpg */; };
 		789F61179A6D3808E5E75792 /* avatar_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 789F666BE6542444D57E9427 /* avatar_02.jpg */; };
@@ -102,6 +113,28 @@
 
 /* Begin PBXFileReference section */
 		0AB198E3739F177CC76BB0B0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5754725C1D290CBC00018DDD /* HomeActivityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeActivityCollectionViewCell.h; sourceTree = "<group>"; };
+		5754725D1D290CBC00018DDD /* HomeActivityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeActivityCollectionViewCell.m; sourceTree = "<group>"; };
+		5754725F1D290D2500018DDD /* GoodsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsCollectionViewCell.h; sourceTree = "<group>"; };
+		575472601D290D2500018DDD /* GoodsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsCollectionViewCell.m; sourceTree = "<group>"; };
+		575472621D290D6900018DDD /* SplitCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitCollectionViewCell.h; sourceTree = "<group>"; };
+		575472631D290D6900018DDD /* SplitCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitCollectionViewCell.m; sourceTree = "<group>"; };
+		575472651D290D9200018DDD /* FeedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCollectionViewCell.h; sourceTree = "<group>"; };
+		575472661D290D9200018DDD /* FeedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedCollectionViewCell.m; sourceTree = "<group>"; };
+		575472681D290DC300018DDD /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		575472691D290DC300018DDD /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		5754726B1D290E2A00018DDD /* DemoOneCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoOneCollectionViewController.h; sourceTree = "<group>"; };
+		5754726C1D290E2A00018DDD /* DemoOneCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoOneCollectionViewController.m; sourceTree = "<group>"; };
+		5754726E1D290EA000018DDD /* UICollectionView+CBTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+CBTableViewDataSource.h"; sourceTree = "<group>"; };
+		5754726F1D290EA000018DDD /* UICollectionView+CBTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+CBTableViewDataSource.m"; sourceTree = "<group>"; };
+		575472711D291AB400018DDD /* DemoThreeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoThreeCollectionViewController.h; sourceTree = "<group>"; };
+		575472721D291AB400018DDD /* DemoThreeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoThreeCollectionViewController.m; sourceTree = "<group>"; };
+		575472741D291D2400018DDD /* CycleScrollCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollCollectionViewCell.h; sourceTree = "<group>"; };
+		575472751D291D2400018DDD /* CycleScrollCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollCollectionViewCell.m; sourceTree = "<group>"; };
+		575472771D291E4800018DDD /* DemoFourCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoFourCollectionViewController.h; sourceTree = "<group>"; };
+		575472781D291E4800018DDD /* DemoFourCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoFourCollectionViewController.m; sourceTree = "<group>"; };
+		5754727A1D292CF700018DDD /* CategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		5754727B1D292CF700018DDD /* CategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCollectionViewCell.m; sourceTree = "<group>"; };
 		789F60A6300688B70719D0DB /* DemoTwoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTwoViewModel.h; sourceTree = "<group>"; };
 		789F614F7709A618C04DB009 /* goods6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goods6.jpg; sourceTree = "<group>"; };
 		789F6180B8D99402FDE91EE6 /* FeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedCell.m; sourceTree = "<group>"; };
@@ -259,17 +292,19 @@
 		D105AA4D1D15A6400081C603 /* CBTableViewDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				D105AA521D15A6400081C603 /* CBTableViewDataSource.h */,
 				D105AA4E1D15A6400081C603 /* CBBaseTableViewDataSource.h */,
 				D105AA4F1D15A6400081C603 /* CBBaseTableViewDataSource.m */,
 				D105AA501D15A6400081C603 /* CBDataSourceSection.h */,
 				D105AA511D15A6400081C603 /* CBDataSourceSection.m */,
-				D105AA521D15A6400081C603 /* CBTableViewDataSource.h */,
 				D105AA531D15A6400081C603 /* CBTableViewDataSourceMaker.h */,
 				D105AA541D15A6400081C603 /* CBTableViewDataSourceMaker.m */,
 				D105AA551D15A6400081C603 /* CBTableViewSectionMaker.h */,
 				D105AA561D15A6400081C603 /* CBTableViewSectionMaker.m */,
 				D105AA571D15A6400081C603 /* UITableView+CBTableViewDataSource.h */,
 				D105AA581D15A6400081C603 /* UITableView+CBTableViewDataSource.m */,
+				5754726E1D290EA000018DDD /* UICollectionView+CBTableViewDataSource.h */,
+				5754726F1D290EA000018DDD /* UICollectionView+CBTableViewDataSource.m */,
 			);
 			path = CBTableViewDataSource;
 			sourceTree = "<group>";
@@ -358,6 +393,12 @@
 				789F65485959968337D7FF66 /* DemoTwoViewController.h */,
 				789F6D697B0F8BC877AFFFEE /* DemoOneViewController.m */,
 				789F6FD1DD668C300B68C4AB /* DemoOneViewController.h */,
+				5754726B1D290E2A00018DDD /* DemoOneCollectionViewController.h */,
+				5754726C1D290E2A00018DDD /* DemoOneCollectionViewController.m */,
+				575472711D291AB400018DDD /* DemoThreeCollectionViewController.h */,
+				575472721D291AB400018DDD /* DemoThreeCollectionViewController.m */,
+				575472771D291E4800018DDD /* DemoFourCollectionViewController.h */,
+				575472781D291E4800018DDD /* DemoFourCollectionViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -453,6 +494,20 @@
 				789F6BE5971444E3706AACCF /* FeedCell.h */,
 				789F67B489F27478F0989891 /* CustomCell.m */,
 				789F6EEB816652520FDDC3D7 /* CustomCell.h */,
+				5754725C1D290CBC00018DDD /* HomeActivityCollectionViewCell.h */,
+				5754725D1D290CBC00018DDD /* HomeActivityCollectionViewCell.m */,
+				5754725F1D290D2500018DDD /* GoodsCollectionViewCell.h */,
+				575472601D290D2500018DDD /* GoodsCollectionViewCell.m */,
+				575472621D290D6900018DDD /* SplitCollectionViewCell.h */,
+				575472631D290D6900018DDD /* SplitCollectionViewCell.m */,
+				575472651D290D9200018DDD /* FeedCollectionViewCell.h */,
+				575472661D290D9200018DDD /* FeedCollectionViewCell.m */,
+				575472681D290DC300018DDD /* CustomCollectionViewCell.h */,
+				575472691D290DC300018DDD /* CustomCollectionViewCell.m */,
+				575472741D291D2400018DDD /* CycleScrollCollectionViewCell.h */,
+				575472751D291D2400018DDD /* CycleScrollCollectionViewCell.m */,
+				5754727A1D292CF700018DDD /* CategoryCollectionViewCell.h */,
+				5754727B1D292CF700018DDD /* CategoryCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -681,29 +736,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5754727C1D292CF700018DDD /* CategoryCollectionViewCell.m in Sources */,
 				D105AA5D1D15A6400081C603 /* UITableView+CBTableViewDataSource.m in Sources */,
 				D19DD0DF1D03130400774243 /* HomeCategoryCell.m in Sources */,
 				D105AA5C1D15A6400081C603 /* CBTableViewSectionMaker.m in Sources */,
 				D19DD0911D02F79A00774243 /* CBIconfont.m in Sources */,
 				D19DCFED1D02EDA900774243 /* AppDelegate.m in Sources */,
 				D19DD0D71D02FC3300774243 /* BaseNavigationViewController.m in Sources */,
+				575472731D291AB400018DDD /* DemoThreeCollectionViewController.m in Sources */,
 				D19DD0CD1D02F94A00774243 /* DemoThreeViewController.m in Sources */,
 				D105AA5A1D15A6400081C603 /* CBDataSourceSection.m in Sources */,
 				D105AA591D15A6400081C603 /* CBBaseTableViewDataSource.m in Sources */,
 				D19DCFEA1D02EDA900774243 /* main.m in Sources */,
+				5754725E1D290CBC00018DDD /* HomeActivityCollectionViewCell.m in Sources */,
 				D19DD0DE1D03130400774243 /* HomeActivityCell.m in Sources */,
+				575472671D290D9200018DDD /* FeedCollectionViewCell.m in Sources */,
+				5754726D1D290E2A00018DDD /* DemoOneCollectionViewController.m in Sources */,
 				D19DD0851D02F10100774243 /* MainViewController.m in Sources */,
 				D19DD0D11D02F9CE00774243 /* DemoThreeViewModel.m in Sources */,
 				789F6881DF97F01ADDF3F9F7 /* CycleScrollViewCell.m in Sources */,
 				789F6C672082030B4B549E90 /* GoodsCell.m in Sources */,
 				789F652B17DF3A3C1B963165 /* SplitView.m in Sources */,
+				575472761D291D2400018DDD /* CycleScrollCollectionViewCell.m in Sources */,
+				575472641D290D6900018DDD /* SplitCollectionViewCell.m in Sources */,
 				789F6CF6375628620EA0346B /* DemoFourViewController.m in Sources */,
 				789F6796A73E8B4E3E31C823 /* DemoFourViewModel.m in Sources */,
+				5754726A1D290DC300018DDD /* CustomCollectionViewCell.m in Sources */,
 				789F6B7E00660A45E01EC8FA /* FeedCell.m in Sources */,
+				575472701D290EA000018DDD /* UICollectionView+CBTableViewDataSource.m in Sources */,
 				789F6AB3EFECC6249858771D /* DemoTwoViewController.m in Sources */,
+				575472791D291E4800018DDD /* DemoFourCollectionViewController.m in Sources */,
 				789F6AB7EBAC1C96DE7CE9D2 /* DemoTwoViewModel.m in Sources */,
 				D105AA5B1D15A6400081C603 /* CBTableViewDataSourceMaker.m in Sources */,
 				789F64F9E9DF667AE165A6D6 /* CustomCell.m in Sources */,
+				575472611D290D2500018DDD /* GoodsCollectionViewCell.m in Sources */,
 				789F6A25F42BCFB2BD075929 /* DemoOneViewController.m in Sources */,
 				789F6ED852A45BAC0F8DE33C /* DemoOneViewModel.m in Sources */,
 			);

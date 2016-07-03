@@ -7,7 +7,12 @@
 
 @class CBDataSourceSection;
 
-@protocol CBBaseTableViewDataSourceProtocol<UITableViewDataSource,UITableViewDelegate>
+@protocol CBBaseTableViewDataSourceProtocol<UITableViewDataSource,
+UITableViewDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegate,
+UICollectionViewDelegateFlowLayout
+>
 @property(nonatomic, strong) NSMutableArray<CBDataSourceSection * > * sections;
 @property(nonatomic, strong) NSMutableDictionary * delegates;
 @end

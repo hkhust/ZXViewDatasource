@@ -29,7 +29,8 @@
                 "url":"banner6.png"
             }
         ],
-        "category":[{
+        "category":[
+        {
            "id":0,
            "name":"美食",
            "image":"category1.png"

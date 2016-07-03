@@ -13,6 +13,9 @@
 #import "DemoFourViewController.h"
 #import "DemoTwoViewController.h"
 #import "DemoOneViewController.h"
+#import "DemoOneCollectionViewController.h"
+#import "DemoThreeCollectionViewController.h"
+#import "DemoFourCollectionViewController.h"
 
 @interface MainViewController ()
 
@@ -24,10 +27,10 @@
     self = [super init];
     if (self) {
         NSArray * controllersInfo = @[
-                @{@"title" : @"DEMO ONE", @"image" : @"ic_demo1", @"selectImage" : @"ic_demo1", @"controller" : [[DemoOneViewController alloc] init]},
+                @{@"title" : @"DEMO ONE", @"image" : @"ic_demo1", @"selectImage" : @"ic_demo1", @"controller" : [[DemoOneCollectionViewController alloc] init]},
                 @{@"title" : @"DEMO TWO", @"image" : @"ic_demo2", @"selectImage" : @"ic_demo2", @"controller" : [[DemoTwoViewController alloc] init]},
-                @{@"title" : @"DEMO THREE", @"image" : @"ic_demo3", @"selectImage" : @"ic_demo3", @"controller" : [[DemoThreeViewController alloc] init]},
-                @{@"title" : @"DEMO FOUR", @"image" : @"ic_demo4", @"selectImage" : @"ic_demo4", @"controller" : [[DemoFourViewController alloc] init]}
+                @{@"title" : @"DEMO THREE", @"image" : @"ic_demo3", @"selectImage" : @"ic_demo3", @"controller" : [[DemoThreeCollectionViewController alloc] init]},
+                @{@"title" : @"DEMO FOUR", @"image" : @"ic_demo4", @"selectImage" : @"ic_demo4", @"controller" : [[DemoFourCollectionViewController alloc] init]}
         ];
 
         for (NSUInteger i = 0; i < controllersInfo.count; ++ i) {

@@ -13,9 +13,11 @@
 - (void)makeSection:(void (^)(CBTableViewSectionMaker * section))block;
 
 @property(nonatomic, weak) UITableView * tableView;
+@property(nonatomic, weak) UICollectionView * collectionView;
 @property(nonatomic, strong) NSMutableArray * sections;
 
 - (instancetype)initWithTableView:(UITableView *)tableView;
+- (instancetype)initWithCollectionView:(UICollectionView *)collectionView;
 - (CBTableViewDataSourceMaker * (^)(CGFloat))height;
 - (CBTableViewDataSourceMaker * (^)(UIView * (^)()))headerView;
 - (CBTableViewDataSourceMaker * (^)(UIView * (^)()))footerView;

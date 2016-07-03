@@ -19,6 +19,14 @@
     return self;
 }
 
+- (instancetype)initWithCollectionView:(UICollectionView *)collectionView {
+    self = [super init];
+    if (self) {
+        self.collectionView = collectionView;
+    }
+    return self;
+}
+
 - (CBTableViewDataSourceMaker * (^)(UIView * (^)()))headerView {
     return ^CBTableViewDataSourceMaker *(UIView * (^view)()) {
         UIView * headerView =  view();
@@ -57,7 +65,14 @@
     CBTableViewSectionMaker * sectionMaker = [CBTableViewSectionMaker new];
     block(sectionMaker);
     if (sectionMaker.section.cell) {
-        [self.tableView registerClass:sectionMaker.section.cell forCellReuseIdentifier:sectionMaker.section.identifier];
+        if (self.tableView) {
+            [self.tableView registerClass:sectionMaker.section.cell forCellReuseIdentifier:sectionMaker.section.identifier];
+        }
+        
+        if (self.collectionView) {
+            [self.collectionView registerClass:sectionMaker.section.cell forCellWithReuseIdentifier:sectionMaker.section.identifier];
+        }
+
     }
     [self.sections addObject:sectionMaker.section];
 }

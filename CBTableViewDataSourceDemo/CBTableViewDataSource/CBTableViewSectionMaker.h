@@ -19,6 +19,13 @@
 
 - (CBTableViewSectionMaker * (^)(CGFloat))height;
 
+- (CBTableViewSectionMaker * (^)(CGSize))size;
+
+- (CBTableViewSectionMaker * (^)(UIEdgeInsets))inset;
+
+- (CBTableViewSectionMaker * (^)(CGFloat))minimumLineSpacing;
+- (CBTableViewSectionMaker * (^)(CGFloat))minimumInteritemSpacing;
+
 - (CBTableViewSectionMaker * (^)())autoHeight;
 
 - (CBTableViewSectionMaker * (^)(void(^)(NSUInteger index, id data)))event;

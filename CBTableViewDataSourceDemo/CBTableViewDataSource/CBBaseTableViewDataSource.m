@@ -9,6 +9,7 @@
 
 @implementation CBBaseTableViewDataSource
 
+#pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.sections.count;
 }
@@ -102,7 +103,6 @@
     }
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger section = (NSUInteger) indexPath.section;
     EventBlock event= (EventBlock) self.sections[section].event;
@@ -193,6 +193,180 @@
         fittingHeight += 1.0 / [UIScreen mainScreen].scale;
     }
 
+    return fittingHeight;
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return self.sections.count;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.sections[(NSUInteger) section].data.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger section = (NSUInteger) indexPath.section;
+    NSUInteger index = (NSUInteger) indexPath.row;
+    id cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.sections[section].identifier forIndexPath:indexPath];
+    AdapterBlock adaptBlock = self.sections[section].adapter;
+    //NSLog(@"adaptBlock %@", [adaptBlock isEqual:nil]);
+    if(!adaptBlock) {
+#if DEBUG
+        NSLog(@"Warning : adapter block for section %ld is null. please use dataSourceMake.adapter(^block) set it", (long) section);
+#endif
+        return cell;
+    }
+    id data = self.sections[section].data[index];
+    adaptBlock(cell,data,index);
+    return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger section = (NSUInteger)indexPath.section;
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        if (self.sections[section].headerView) {
+            return (UICollectionReusableView *)self.sections[section].headerView;
+        }
+    } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        if (self.sections[section].footerView) {
+            return (UICollectionReusableView *)self.sections[section].footerView;
+        }
+    }
+    
+    return [UICollectionReusableView new];
+}
+//
+//- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//}
+
+//- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath {
+//    
+//}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger section = (NSUInteger) indexPath.section;
+    EventBlock event= (EventBlock) self.sections[section].event;
+    
+    if(!event) {
+        [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+        return ;
+    }
+    
+    NSUInteger index = (NSUInteger) indexPath.row;
+    id data = self.sections[section].data[index];
+    event(index,data);
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSUInteger section = (NSUInteger) indexPath.section;
+    NSUInteger index = (NSUInteger) indexPath.row;
+    NSString * identifier = self.sections[section].identifier;
+    if(self.sections[section].isAutoHeight) {
+        AdapterBlock adapterBlock = self.sections[section].adapter;
+        id data = self.sections[section].data[index];
+        
+        NSNumber * numHeight = objc_getAssociatedObject(data, NSSelectorFromString(identifier));
+        
+        if(!numHeight) {
+            UICollectionViewCell * cell = [self cellForReuseIdentifier:identifier indexPath:indexPath withCollectionView:collectionView];
+            [cell prepareForReuse];
+            
+            if(![adapterBlock isEqual:[NSNull null]]) {
+                adapterBlock(cell,data,index);
+            }
+            CGFloat height = [self systemFittingHeightForConfiguratedCell:cell withCollectionView:collectionView];
+            objc_setAssociatedObject(data,NSSelectorFromString(identifier),@(height),OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            return CGSizeMake(SCREEN_WIDTH, height);
+        } else {
+            return CGSizeMake(SCREEN_WIDTH, [numHeight floatValue]);
+        }
+    } else if(!CGSizeEqualToSize(self.sections[section].staticSize,CGSizeZero)) {
+        return self.sections[section].staticSize;
+    } else {
+        return CGSizeMake(SCREEN_WIDTH, 100);
+    }
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return self.sections[section].inset;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return self.sections[section].minimumLineSpacing;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return self.sections[section].minimumInteritemSpacing;
+}
+
+- (__kindof UICollectionViewCell *)cellForReuseIdentifier:(NSString *)identifier indexPath:(NSIndexPath *)indexPath  withCollectionView:(UICollectionView*)collectionView {
+    NSAssert(identifier.length > 0, @"Expect a valid identifier - %@", identifier);
+    
+    NSMutableDictionary<NSString *, UICollectionViewCell *> *templateCellsByIdentifiers = objc_getAssociatedObject(self, _cmd);
+    
+    if (!templateCellsByIdentifiers) {
+        templateCellsByIdentifiers = @{}.mutableCopy;
+        objc_setAssociatedObject(self, _cmd, templateCellsByIdentifiers, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    
+    UICollectionViewCell *templateCell = templateCellsByIdentifiers[identifier];
+    
+    if (!templateCell) {
+        templateCell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+        NSAssert(templateCell != nil, @"Cell must be registered to table view for identifier - %@", identifier);
+        templateCell.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+        templateCellsByIdentifiers[identifier] = templateCell;
+    }
+    
+    return templateCell;
+}
+
+- (CGFloat)systemFittingHeightForConfiguratedCell:(UICollectionViewCell *)cell withCollectionView:(UICollectionView *)collectionView {
+    
+    CGFloat contentViewWidth = CGRectGetWidth(collectionView.frame);
+    
+    CGFloat fittingHeight = 0;
+    
+    if (contentViewWidth > 0) {
+        NSLayoutConstraint *widthFenceConstraint =
+        [NSLayoutConstraint
+         constraintWithItem:cell.contentView
+         attribute:NSLayoutAttributeWidth
+         relatedBy:NSLayoutRelationEqual
+         toItem:nil
+         attribute:NSLayoutAttributeNotAnAttribute
+         multiplier:1.0
+         constant:contentViewWidth];
+        [cell.contentView addConstraint:widthFenceConstraint];
+        
+        fittingHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        [cell.contentView removeConstraint:widthFenceConstraint];
+    }
+    
+    if (fittingHeight == 0) {
+#if DEBUG
+        if (cell.contentView.constraints.count > 0) {
+            if (!objc_getAssociatedObject(self, _cmd)) {
+                NSLog(@"Warning: Cannot get a proper cell height (now 0) from '- systemFittingSize:'(AutoLayout). You should check how constraints are built in cell, making it into 'self-sizing' cell.");
+                objc_setAssociatedObject(self, _cmd, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            }
+        }
+#endif
+    }
+    
+    if (fittingHeight == 0) {
+        fittingHeight = 44;
+    }
+    
     return fittingHeight;
 }
 

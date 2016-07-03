@@ -42,6 +42,34 @@
     };
 }
 
+- (CBTableViewSectionMaker * (^)(CGSize))size {
+    return ^CBTableViewSectionMaker *(CGSize size) {
+        self.section.staticSize = size;
+        return self;
+    };
+}
+
+- (CBTableViewSectionMaker * (^)(UIEdgeInsets))inset {
+    return ^CBTableViewSectionMaker *(UIEdgeInsets inset) {
+        self.section.inset = inset;
+        return self;
+    };
+}
+
+- (CBTableViewSectionMaker * (^)(CGFloat))minimumLineSpacing {
+    return ^CBTableViewSectionMaker *(CGFloat minimumLineSpacing) {
+        self.section.minimumLineSpacing = minimumLineSpacing;
+        return self;
+    };
+}
+
+- (CBTableViewSectionMaker * (^)(CGFloat))minimumInteritemSpacing {
+    return ^CBTableViewSectionMaker *(CGFloat minimumInteritemSpacing) {
+        self.section.minimumInteritemSpacing = minimumInteritemSpacing;
+        return self;
+    };
+}
+
 - (CBTableViewSectionMaker * (^)())autoHeight {
     return ^CBTableViewSectionMaker * {
         self.section.isAutoHeight = YES;
